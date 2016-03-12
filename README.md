@@ -1,7 +1,7 @@
 Learning to Rank
 ======
 
-A simple implementation of algorithms of learning to rank.
+A simple implementation of algorithms of learning to rank. Pairwise (RankNet) and ListWise (ListNet) approach.
 
 ## Requirements
 [tqdm](https://github.com/noamraph/tqdm)
@@ -22,7 +22,7 @@ and some basic packages.
 ## RankNet
 ### Pairwise comparison of rank
 
-The original paper is available at http://research.microsoft.com/en-us/um/people/cburges/papers/ICML_ranking.pdf.
+The original paper was written by Chris Burges et al., "Learning to Rank using Gradient Descent." (available at http://research.microsoft.com/en-us/um/people/cburges/papers/ICML_ranking.pdf)
 
 ### Usage
 
@@ -45,11 +45,16 @@ Possible options and defaults:
 batchsize=100, n_iter=5000, n_units1=512, n_units2=128, tv_ratio=0.95, optimizerAlgorithm="Adam", savefigName="result.pdf", savemodelName="RankNet.model"
 ```
 
+```n_units1``` and ```n_units2=128``` are the number of nodes in hidden layer 1 and 2 in the neural net.
+
+```tv_ratio``` is the ratio of the data amounts between training and validation. 
+
+
 ## ListNet
 
 ### Listwise comparison of rank
 
-The original paper is available at http://research.microsoft.com/en-us/people/tyliu/listnet.pdf.
+The original paper was written by Zhe Cao, Tao Qin, Tie-Yan Liu, Ming-Feng Tsai, Hang Li "Learning to Rank: From Pairwise Approach to Listwise Approach." (Available at http://research.microsoft.com/en-us/people/tyliu/listnet.pdf)
 
 NOTICE:
     The top-k probability is not written.
@@ -81,7 +86,7 @@ batchsize=100, n_epoch=200, n_units1=512, n_units2=128, tv_ratio=0.95, optimizer
 
 ## Author
 
-If you have troubles or questions, please contact [shiba24](https://github.com/shiba24).
+If you have any troubles or questions, please contact [shiba24](https://github.com/shiba24).
 
 March, 2016
 
