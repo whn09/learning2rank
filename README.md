@@ -29,7 +29,7 @@ The original paper was written by Chris Burges et al., "Learning to Rank using G
 Import and initialize
 
 ```
-import RankNet
+from learning2rank.rank import RankNet
 Model = RankNet.RankNet()
 ```
 
@@ -67,7 +67,7 @@ NOTICE:
 Import and initialize
 
 ```
-import ListNet
+from learning2rank.rank import ListNet
 Model = ListNet.ListNet()
 ```
 
