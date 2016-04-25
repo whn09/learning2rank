@@ -31,19 +31,21 @@ class Model(chainer.Chain):
             l2=L.Linear(n_units1, n_units2),
             l3=L.Linear(n_units2, n_out),
         )
+        
     def __call__(self, x, t):
         h1 = F.relu(self.l1(x))
         h2 = F.relu(self.l2(h1))
         h = F.relu(self.l3(h2))
         self.loss = F.mean_squared_error(h, t)
         return self.loss
+
     def predict(self, x):
         h1 = F.relu(self.l1(x))
         h2 = F.relu(self.l2(h1))
         h = F.relu(self.l3(h2))
         return h.data
 
-
+        
 class NN(NNfuncs.NN):
     def __init__(self, resumemodelName=None):
         self.resumemodelName = resumemodelName
