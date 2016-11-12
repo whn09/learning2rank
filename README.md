@@ -33,7 +33,8 @@ Fitting (automatically do training and validation)
 ```
 Model.fit(X, y)
 ```
-Here, ```y``` is the score which you would like to rank based on.
+
+Here, `X` is numpy array with the shape of (num_samples, num_features) and `y` is numpy array with the shape of (num_samples, ). `y` is the score which you would like to rank based on (e.g., Sales of the products, page view, etc).
 
 Possible options and defaults:
 
@@ -77,6 +78,8 @@ Fitting (automatically do training and validation)
 ```
 Model.fit(X, y)
 ```
+
+Same as ranknet, `X` is numpy array with the shape of (num_samples, num_features) and `y` is numpy array with the shape of (num_samples, ). `y` is the score which you would like to rank based on (e.g., Sales of the products, page view, etc).
 
 Possible options and defaults:
 
