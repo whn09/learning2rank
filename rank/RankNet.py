@@ -61,14 +61,15 @@ class RankNet(NNfuncs.NN):
 
     Usage (Traininng):
         Model.fit(X, y)
-        
+
     With options:
         Model.fit(X, y, batchsize=100, n_iter=5000, n_units1=512, n_units2=128, tv_ratio=0.95, optimizerAlgorithm="Adam", savefigName="result.pdf", savemodelName="RankNet.model")
 
     """
-    def __init__(self, resumemodelName=None):
+    def __init__(self, resumemodelName=None, silent=False):
         self.resumemodelName = resumemodelName
         self.train_loss, self.test_loss = [], []
+        self.silent = silent
         if resumemodelName is not None:
             print("load resume model!")
             self.loadModel(resumemodelName)
@@ -108,16 +109,17 @@ class RankNet(NNfuncs.NN):
                 test_ndcg = self.ndcg(y_test, test_score)
                 self.train_loss.append(train_ndcg)
                 self.test_loss.append(test_ndcg)
-                print("step: {0}".format(step + 1))
-                print("NDCG@100 | train: {0}, test: {1}".format(train_ndcg, test_ndcg))
+                if not self.silent:
+                    print("step: {0}".format(step + 1))
+                    print("NDCG@100 | train: {0}, test: {1}".format(train_ndcg, test_ndcg))
 
     def fit(self, fit_X, fit_y, batchsize=100, n_iter=5000, n_units1=512, n_units2=128, tv_ratio=0.95, optimizerAlgorithm="Adam", savefigName="result.pdf", savemodelName="RankNet.model"):
         train_X, train_y, validate_X, validate_y = self.splitData(fit_X, fit_y, tv_ratio)
-        print("The number of data, train:", len(train_X), "validate:", len(validate_X))   
+        print("The number of data, train:", len(train_X), "validate:", len(validate_X))
 
         if self.resumemodelName is None:
             self.initializeModel(Model, train_X, n_units1, n_units2, optimizerAlgorithm)
-        
+
         self.trainModel(train_X, train_y, validate_X, validate_y, n_iter)
 
         plot_result.acc(self.train_loss, self.test_loss, savename=savefigName)
@@ -211,9 +213,9 @@ class RankNet(NNfuncs.NN):
 
 # #    plot_result(train_loss, test_loss, savename=savefigName)
 #     print('save the model')
-#     serializers.save_hdf5(savemodelName, model) 
+#     serializers.save_hdf5(savemodelName, model)
 #     print('save the optimizer')
-#     serializers.save_hdf5(savemodelName[:-5]+ 'state', optimizer)  
+#     serializers.save_hdf5(savemodelName[:-5]+ 'state', optimizer)
 #     return model
 
 
