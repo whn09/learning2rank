@@ -1,7 +1,7 @@
 Learning to Rank
 ======
 
-An easy implementation of algorithms of learning to rank. Pairwise (RankNet) and ListWise (ListNet) approach. There implemented also a simple regression of the score with neural network.
+An easy implementation of algorithms of learning to rank. Pairwise (RankNet) and ListWise (ListNet) approach. There implemented also a simple regression of the score with neural network. [Contribution Welcome!]
 
 ## Requirements
 - python 2.7
