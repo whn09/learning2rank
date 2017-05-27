@@ -66,10 +66,10 @@ class RankNet(NNfuncs.NN):
         Model.fit(X, y, batchsize=100, n_iter=5000, n_units1=512, n_units2=128, tv_ratio=0.95, optimizerAlgorithm="Adam", savefigName="result.pdf", savemodelName="RankNet.model")
 
     """
-    def __init__(self, resumemodelName=None, silent=False):
+    def __init__(self, resumemodelName=None, verbose=True):
         self.resumemodelName = resumemodelName
         self.train_loss, self.test_loss = [], []
-        self.silent = silent
+        self._verbose = verbose
         if resumemodelName is not None:
             print("load resume model!")
             self.loadModel(resumemodelName)
@@ -109,7 +109,7 @@ class RankNet(NNfuncs.NN):
                 test_ndcg = self.ndcg(y_test, test_score)
                 self.train_loss.append(train_ndcg)
                 self.test_loss.append(test_ndcg)
-                if not self.silent:
+                if self._verbose:
                     print("step: {0}".format(step + 1))
                     print("NDCG@100 | train: {0}, test: {1}".format(train_ndcg, test_ndcg))
 
