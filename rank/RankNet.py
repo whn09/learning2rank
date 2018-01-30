@@ -43,7 +43,7 @@ class Model(chainer.Chain):
             S_ij = -1
         else:
             S_ij = 0
-        self.loss = (1 - S_ij) * s_diff / 2. + F.math.exponential.Log()(1 + F.math.exponential.Exp()(-s_diff))
+        self.loss = (1 - S_ij) * s_diff / 2. + F.log(1 + F.exp(-s_diff))
         return self.loss
 
     def predict(self, x):
