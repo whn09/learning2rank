@@ -51,7 +51,7 @@ class NN(object):
     def splitData(self, fit_X, fit_y, tv_ratio):
         print('load dataset')
         perm = np.random.permutation(len(fit_X))
-        N_train = np.floor(len(fit_X) * tv_ratio)
+        N_train = int(np.floor(len(fit_X) * tv_ratio))
         train_X, validate_X = np.split(fit_X[perm].astype(np.float32),   [N_train])
         train_y, validate_y = np.split(fit_y[perm].astype(np.float32).reshape(len(fit_y), 1), [N_train])
         return train_X, train_y, validate_X, validate_y
