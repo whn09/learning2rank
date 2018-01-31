@@ -7,7 +7,7 @@ An easy implementation of algorithms of learning to rank. Pairwise (RankNet) and
 - python 2.7
 - [tqdm](https://github.com/noamraph/tqdm)
 - [matplotlib v1.5.1](http://matplotlib.org/)
-- [numpy v1.10.1](http://www.numpy.org/)
+- [numpy v1.13+](http://www.numpy.org/)
 - [scipy](https://www.scipy.org/)
 - [chainer v1.5.1 +](http://chainer.org/)
 - [scikit-learn](http://scikit-learn.org/stable/)
