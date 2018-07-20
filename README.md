@@ -116,7 +116,7 @@ Model.fit(X, y)
 Possible options and defaults:
 
 ```
-batchsize=100, n_iter=5000, n_units1=512, n_units2=128, tv_ratio=0.95, optimizerAlgorithm="Adam", savefigName="result.pdf", savemodelName="RankNet.model"
+batchsize=100, n_epoch=5000, n_units1=512, n_units2=128, tv_ratio=0.95, optimizerAlgorithm="Adam", savefigName="result.pdf", savemodelName="NN.model"
 ```
 
 ```n_units1``` and ```n_units2=128``` are the number of nodes in hidden layer 1 and 2 in the neural net.

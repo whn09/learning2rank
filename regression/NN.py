@@ -76,8 +76,8 @@ class NN(NNfuncs.NN):
             perm = np.random.permutation(N_test)
             sum_loss = 0
             for j in tqdm(six.moves.range(0, N_test, batchsize)):
-                x = chainer.Variable(np.asarray(x_test[perm[j:j + batchsize]]), volatile='on')
-                t = chainer.Variable(np.asarray(y_test[perm[j:j + batchsize]]), volatile='on')
+                x = chainer.Variable(np.asarray(x_test[perm[j:j + batchsize]]))  #, volatile='on'
+                t = chainer.Variable(np.asarray(y_test[perm[j:j + batchsize]]))  #, volatile='on'
                 loss = self.model(x, t)
                 sum_loss += float(loss.data) * len(t.data)
             print('test  mean loss={}'.format(sum_loss / N_test))
